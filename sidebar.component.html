@@ -1,0 +1,30 @@
+<div class="sidebar" [class.collapsed]="collapsed">
+  <!-- Toggle Button -->
+  <button class="toggle-btn" (click)="toggleSidebar()">
+    <i class="fas" [ngClass]="collapsed ? 'fa-bars' : 'fa-times'"></i>
+  </button>
+
+  <!-- Brand -->
+  <h3 *ngIf="!collapsed">
+    <i class="fas fa-building"></i> Dhruv - CMS
+  </h3>
+
+  <!-- Navigation -->
+  <nav>
+    <ul>
+      <li><a routerLink="/dashboard" routerLinkActive="active"><i class="fas fa-home"></i> <span *ngIf="!collapsed">Dashboard</span></a></li>
+      <li><a routerLink="/employees" routerLinkActive="active"><i class="fas fa-users"></i> <span *ngIf="!collapsed">Employees</span></a></li>
+      <li><a routerLink="/departments" routerLinkActive="active"><i class="fas fa-building"></i> <span *ngIf="!collapsed">Departments</span></a></li>
+      <li><a routerLink="/projects" routerLinkActive="active"><i class="fas fa-tasks"></i> <span *ngIf="!collapsed">Projects</span></a></li>
+      <li><a routerLink="/payroll" routerLinkActive="active"><i class="fas fa-money-bill"></i> <span *ngIf="!collapsed">Payroll</span></a></li>
+      <li><a routerLink="/attendance" routerLinkActive="active"><i class="fas fa-calendar-check"></i> <span *ngIf="!collapsed">Attendance</span></a></li>
+      <li><a routerLink="/performance" routerLinkActive="active"><i class="fas fa-chart-line"></i> <span *ngIf="!collapsed">Performance</span></a></li>
+      <li><a routerLink="/profile" routerLinkActive="active"><i class="fas fa-user-circle"></i> <span *ngIf="!collapsed">Profile</span></a></li>
+      <li><a routerLink="/about" routerLinkActive="active"><i class="fas fa-info-circle"></i> <span *ngIf="!collapsed">About</span></a></li>
+      <li><a routerLink="/contact" routerLinkActive="active"><i class="fas fa-envelope"></i> <span *ngIf="!collapsed">Contact</span></a></li>
+      <li><a routerLink="/faqs" routerLinkActive="active"><i class="fas fa-question-circle"></i> <span *ngIf="!collapsed">FAQs</span></a></li>
+      <li><a routerLink="/login" routerLinkActive="active"><i class="fas fa-sign-in-alt"></i> <span *ngIf="!collapsed">Login</span></a></li>
+      <li><a routerLink="/register" routerLinkActive="active"><i class="fas fa-user-plus"></i> <span *ngIf="!collapsed">Register</span></a></li>
+    </ul>
+  </nav>
+</div>
