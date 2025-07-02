@@ -1,0 +1,54 @@
+<h2><i class="fas fa-users"></i> Employee Management</h2>
+
+<!-- Filters -->
+<div class="filter-bar">
+  <input type="text" [(ngModel)]="searchText" (input)="filterEmployees()" placeholder="Search by name" />
+  <select [(ngModel)]="selectedDepartment" (change)="filterEmployees()">
+    <option value="">All Departments</option>
+    <option *ngFor="let dept of departments">{{ dept }}</option>
+  </select>
+</div>
+
+<!-- Employee Form -->
+<div class="form-container">
+  <input type="text" [(ngModel)]="newEmployee.name" placeholder="Name" />
+  <input type="email" [(ngModel)]="newEmployee.email" placeholder="Email" />
+  <input type="text" [(ngModel)]="newEmployee.position" placeholder="Position" />
+  <select [(ngModel)]="newEmployee.department">
+    <option value="">Select Department</option>
+    <option *ngFor="let dept of departments">{{ dept }}</option>
+  </select>
+  <input type="file" (change)="onImageUpload($event)" />
+  <img *ngIf="newEmployee.profilePic" [src]="newEmployee.profilePic" alt="Profile" class="preview" />
+
+  <button *ngIf="!editId" (click)="addEmployee()">Add Employee</button>
+  <button *ngIf="editId" (click)="updateEmployee()">Update Employee</button>
+</div>
+
+<!-- Employee Table -->
+<table>
+  <thead>
+    <tr>
+      <th>Photo</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Department</th>
+      <th>Position</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let emp of filteredEmployees">
+      <td><img [src]="emp.profilePic" class="avatar" *ngIf="emp.profilePic" /></td>
+      <td>{{ emp.name }}</td>
+      <td>{{ emp.email }}</td>
+      <td>{{ emp.department }}</td>
+      <td>{{ emp.position }}</td>
+      <td>
+        <button (click)="editEmployee(emp)">Edit</button>
+        <button (click)="deleteEmployee(emp.id)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+

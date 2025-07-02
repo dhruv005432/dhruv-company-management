@@ -1,0 +1,42 @@
+<h2><i class="fas fa-money-bill"></i> Payroll Management</h2>
+
+<div class="form-box">
+  <select [(ngModel)]="newPayroll.employee">
+    <option value="">Select Employee</option>
+    <option *ngFor="let emp of employees">{{ emp }}</option>
+  </select>
+
+  <input type="text" [(ngModel)]="newPayroll.month" placeholder="Month" />
+  <input type="number" [(ngModel)]="newPayroll.year" placeholder="Year" />
+  <input type="number" [(ngModel)]="newPayroll.basic" placeholder="Basic Salary" />
+  <input type="number" [(ngModel)]="newPayroll.hra" placeholder="HRA" />
+  <input type="number" [(ngModel)]="newPayroll.bonus" placeholder="Bonus" />
+  <input type="number" [(ngModel)]="newPayroll.deductions" placeholder="Deductions" />
+
+  <button *ngIf="!editId" (click)="addPayroll()">Generate Payroll</button>
+  <button *ngIf="editId" (click)="updatePayroll()">Update Payroll</button>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Employee</th>
+      <th>Month</th>
+      <th>Net Pay</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let p of payrolls">
+      <td>{{ p.employee }}</td>
+      <td>{{ p.month }} {{ p.year }}</td>
+      <td>₹{{ p.netPay }}</td>
+      <td>
+        <button (click)="editPayroll(p)">Edit</button>
+        <button (click)="deletePayroll(p.id)">Delete</button>
+        <button (click)="downloadPayslip(p)">Payslip</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+    

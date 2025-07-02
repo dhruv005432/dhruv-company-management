@@ -1,0 +1,25 @@
+<div class="profile-container">
+  <h2><i class="fas fa-user-circle"></i> My Profile</h2>
+
+  <img [src]="user.profileImage || 'assets/default-user.png'" class="profile-img">
+  <input type="file" (change)="onImageChange($event)" accept="image/*" />
+
+  <input [(ngModel)]="user.firstName" placeholder="First Name" />
+  <input [(ngModel)]="user.lastName" placeholder="Last Name" />
+  <input [(ngModel)]="user.email" placeholder="Email" />
+  <input [(ngModel)]="user.contact" placeholder="Phone Number" />
+
+  <button (click)="updateProfile()">Update Profile</button>
+
+  <hr />
+
+  <h3><i class="fas fa-key"></i> Change Password</h3>
+  <input type="password" [(ngModel)]="newPassword" placeholder="New Password" />
+  <input type="password" [(ngModel)]="confirmPassword" placeholder="Confirm Password" />
+  <button (click)="updatePassword()">Update Password</button>
+
+  <hr />
+
+  <button (click)="logout()" class="logout">Logout</button>
+  <button (click)="deleteProfile()" class="delete">Delete Profile</button>
+</div>

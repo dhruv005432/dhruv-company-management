@@ -1,0 +1,50 @@
+<h2><i class="fas fa-tasks"></i> Project Management</h2>
+
+<!-- Form -->
+<div class="form-box">
+  <input type="text" [(ngModel)]="newProject.title" placeholder="Project Title" />
+  <select [(ngModel)]="newProject.department">
+    <option value="">Select Department</option>
+    <option *ngFor="let dept of departments">{{ dept }}</option>
+  </select>
+
+  <!-- Multi-Select Employee Toggle -->
+  <div class="multi-select">
+    <label *ngFor="let emp of employees">
+      <input type="checkbox" [checked]="newProject.assignedEmployees.includes(emp)" (change)="toggleEmployee(emp)" />
+      {{ emp }}
+    </label>
+  </div>
+
+  <select [(ngModel)]="newProject.status">
+    <option *ngFor="let status of statuses">{{ status }}</option>
+  </select>
+
+  <button *ngIf="!editId" (click)="addProject()">Add</button>
+  <button *ngIf="editId" (click)="updateProject()">Update</button>
+</div>
+
+<!-- Table -->
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Department</th>
+      <th>Employees</th>
+      <th>Status</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let project of projects">
+      <td>{{ project.title }}</td>
+      <td>{{ project.department }}</td>
+      <td>{{ project.assignedEmployees.join(', ') }}</td>
+      <td>{{ project.status }}</td>
+      <td>
+        <button (click)="editProject(project)">Edit</button>
+        <button (click)="deleteProject(project.id)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

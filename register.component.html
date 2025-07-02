@@ -1,0 +1,23 @@
+<div class="register-box">
+  <h2><i class="fas fa-user-plus"></i> Register</h2>
+
+  <input type="text" placeholder="First Name" [(ngModel)]="form.firstName">
+  <input type="text" placeholder="Middle Name" [(ngModel)]="form.middleName">
+  <input type="text" placeholder="Last Name" [(ngModel)]="form.lastName">
+  <input type="email" placeholder="Email" [(ngModel)]="form.email">
+  <input type="tel" placeholder="Contact Number" [(ngModel)]="form.contact">
+  <input type="password" placeholder="Create Password" [(ngModel)]="form.password">
+  <input type="password" placeholder="Confirm Password" [(ngModel)]="form.confirmPassword">
+
+  <select [(ngModel)]="form.department">
+    <option value="">Select Department (optional)</option>
+    <option *ngFor="let dept of departments">{{ dept }}</option>
+  </select>
+
+  <div class="captcha-box">
+    <span class="captcha-text">{{ captcha }}</span>
+    <input type="text" placeholder="Enter Captcha" [(ngModel)]="form.captcha">
+  </div>
+
+  <button (click)="register()">Register</button>
+</div>

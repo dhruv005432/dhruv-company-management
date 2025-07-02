@@ -1,0 +1,32 @@
+<div class="contact-container">
+  <h2><i class="fas fa-envelope"></i> Contact Dhruv - Company Management System</h2>
+
+  <form (ngSubmit)="submitContactForm()">
+    <div class="form-group">
+      <label><i class="fas fa-user"></i> Name</label>
+      <input type="text" [(ngModel)]="contactForm.name" name="name" required>
+    </div>
+
+    <div class="form-group">
+      <label><i class="fas fa-envelope-open-text"></i> Email</label>
+      <input type="email" [(ngModel)]="contactForm.email" name="email" required>
+    </div>
+
+    <div class="form-group">
+      <label><i class="fas fa-comment-dots"></i> Message</label>
+      <textarea rows="4" [(ngModel)]="contactForm.message" name="message" required></textarea>
+    </div>
+
+    <div class="form-group">
+      <label><i class="fas fa-question-circle"></i> Query Type</label>
+      <select [(ngModel)]="contactForm.type" name="type">
+        <option>Support</option>
+        <option>Feedback</option>
+        <option>Careers</option>
+        <option>Other</option>
+      </select>
+    </div>
+
+    <button type="submit"><i class="fas fa-paper-plane"></i> Send Message</button>
+  </form>
+</div>

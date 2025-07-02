@@ -1,0 +1,55 @@
+<h2><i class="fas fa-calendar-check"></i> Attendance Management</h2>
+
+<!-- Mark Attendance -->
+<div class="attendance-box">
+  <h3>Mark Today's Attendance</h3>
+  <div *ngFor="let emp of employees">
+    {{ emp }}:
+    <button (click)="markAttendance(emp, 'Present')">Present</button>
+    <button (click)="markAttendance(emp, 'Absent')">Absent</button>
+    <button (click)="markAttendance(emp, 'Leave')">Leave</button>
+  </div>
+</div>
+
+<!-- Apply for Leave -->
+<div class="leave-box">
+  <h3>Apply for Leave</h3>
+  <select [(ngModel)]="newLeave.employee">
+    <option value="">Select Employee</option>
+    <option *ngFor="let emp of employees">{{ emp }}</option>
+  </select>
+  <input type="date" [(ngModel)]="newLeave.from" />
+  <input type="date" [(ngModel)]="newLeave.to" />
+  <input type="text" [(ngModel)]="newLeave.reason" placeholder="Reason" />
+  <button (click)="applyLeave()">Apply</button>
+</div>
+
+<!-- Leave History -->
+<div class="leave-history">
+  <h3>Leave Requests</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Employee</th>
+        <th>From</th>
+        <th>To</th>
+        <th>Reason</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let leave of leaveList">
+        <td>{{ leave.employee }}</td>
+        <td>{{ leave.from }}</td>
+        <td>{{ leave.to }}</td>
+        <td>{{ leave.reason }}</td>
+        <td>{{ leave.status }}</td>
+        <td>
+          <button (click)="updateLeaveStatus(leave.id, 'Approved')">Approve</button>
+          <button (click)="updateLeaveStatus(leave.id, 'Rejected')">Reject</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

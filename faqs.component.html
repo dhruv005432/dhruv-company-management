@@ -1,0 +1,15 @@
+<div class="faqs-container">
+  <h2><i class="fas fa-question-circle"></i> Frequently Asked Questions</h2>
+
+  <div class="faq-item" *ngFor="let faq of faqs; let i = index">
+    <div class="faq-question" (click)="toggle(i)">
+      <i class="fas fa-chevron-down" [class.rotate]="activeIndex === i"></i>
+      {{ faq.question }}
+    </div>
+
+    <div class="faq-answer" *ngIf="activeIndex === i">
+      <p>{{ faq.answer }}</p>
+    </div>
+  </div>
+</div>
+

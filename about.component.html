@@ -1,0 +1,26 @@
+<div class="about-container">
+  <h2><i class="fas fa-info-circle"></i> About Dhruv - Company Management System</h2>
+
+  <section class="section">
+    <h3><i class="fas fa-history"></i> Company History</h3>
+    <p>{{ aboutInfo?.history }}</p>
+  </section>
+
+  <section class="section">
+    <h3><i class="fas fa-bullseye"></i> Mission</h3>
+    <p>{{ aboutInfo?.mission }}</p>
+
+    <h3><i class="fas fa-eye"></i> Vision</h3>
+    <p>{{ aboutInfo?.vision }}</p>
+  </section>
+
+  <section class="section">
+    <h3><i class="fas fa-users"></i> Meet Our Team</h3>
+    <div class="team-card" *ngFor="let member of aboutInfo?.team">
+      <i class="fas fa-user-tie"></i>
+      <h4>{{ member.name }}</h4>
+      <p><strong>Role:</strong> {{ member.role }}</p>
+      <p><strong>Email:</strong> {{ member.email }}</p>
+    </div>
+  </section>
+</div>

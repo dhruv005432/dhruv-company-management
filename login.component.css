@@ -1,0 +1,56 @@
+.login-box {
+  max-width: 420px;
+  margin: auto;
+  padding: 25px;
+  background: linear-gradient(#ffffff, #eaf0ff);
+  border-radius: 15px;
+  box-shadow: 5px 5px 15px rgba(90, 141, 238, 0.2);
+  text-align: center;
+}
+
+input {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+button {
+  background-color: #5a8dee;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #2d57b3;
+}
+
+.google-btn {
+  background-color: #db4437;
+  margin-top: 10px;
+}
+
+.facebook-btn {
+  background-color: #3b5998;
+  margin-top: 10px;
+}
+
+.captcha-box {
+  margin-top: 10px;
+}
+
+.captcha-text {
+  background: #2d57b3;
+  color: white;
+  padding: 5px 15px;
+  border-radius: 6px;
+  margin-right: 10px;
+  display: inline-block;
+}
